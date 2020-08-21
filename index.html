@@ -10,6 +10,11 @@
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <!--JQuery for Bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 </head>
@@ -28,13 +33,19 @@
                 <a href="#about">About</a>
             </li>
             <li>
-                <a href="#experience">Experience</a>
-            </li>
-            <li>
                 <a href="#education">Education</a>
             </li>
             <li>
+                <a href="#experience">Experience</a>
+            </li>
+            <li>
+                <a href="#awards">Awards</a>
+            </li>
+            <li>
                 <a href="#projects">Projects</a>
+            </li>
+            <li>
+                <a href="#clubs">Clubs</a>
             </li>
             <li>
                 <a href="#skills">Skills</a>
@@ -83,6 +94,22 @@
     </div>
     <!-- End #about -->
 
+    <div id="education">
+        <h2 class="heading">Education</h2>
+        <div class="education-block">
+            <h3>University of Toronto</h3>
+            <span class="education-date">Sept 2018 - Apr 2022</span>
+            <h4>Bachelor of Applied Science in Computer Engineering</h4>
+            <ul>
+                <li>3rd year, cGPA <b>3.94</b></li>
+                <li>Dean's Honour List for all semesters</li>
+            </ul>
+        </div>
+        <!-- End .education-block -->
+
+    </div>
+    <!-- End #education -->
+
     <div id="experience" class="background-alt">
         <h2 class="heading">Experience</h2>
         <div id="experience-timeline">
@@ -110,33 +137,50 @@
     </div>
     <!-- End #experience -->
 
-    <div id="education">
-        <h2 class="heading">Education</h2>
-        <div class="education-block">
-            <h3>University of Toronto</h3>
-            <span class="education-date">Sept 2018 - Apr 2022</span>
-            <h4>Bachelor of Applied Science in Computer Engineering</h4>
-            <ul>
-                <li>3rd year, cGPA <b>3.94</b></li>
-                <li>Dean's Honour List for all semesters</li>
-            </ul>
-            <br>
-            <h4>Awards</h4>
-            <ul>
-                <li>University of Toronto Excellence Award (2020)</li>
-                <li>ECE Outstanding Student Award (2019)</li>
-                <li>University of Toronto Dean’s Merit Award (2018)</li>
-            </ul>
+    <div id="awards">
+        <h2 class="heading">Awards</h2>
+        <div class="awards-cards-container">
+            <div class="row">
+
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">University of Toronto Excellence Award (2020)</h5>
+                      <p class="card-text">This gave me the chance to work with the <a href="https://imedia.mie.utoronto.ca/">Interactive Media Lab</a>
+                                            on their mission to create games for dementia patients.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">ECE Outstanding Student Award (2019)</h5>
+                      <p class="card-text">For being one of the top three students in Electrical Engineering at the University of Toronto.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">University of Toronto Dean’s Merit Award (2018)</h5>
+                        <p class="card-text">I was delighted to have received this merit award upon entering the university.</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        
         </div>
-        <!-- End .education-block -->
+        <!-- End .awards-cards-container -->
 
     </div>
-    <!-- End #education -->
+    <!-- End #awards -->
 
     <div id="projects" class="background-alt">
         <h2 class="heading">Projects</h2>
         <div class="container">
-            <div class="row">
+            <div>
 
                 <div class="project shadow-large">
                     <div class="project-image">
@@ -190,6 +234,50 @@
         </div>
     </div>
     <!-- End #projects -->
+
+    <div id="clubs">
+        <h2 class="heading">Clubs</h2>
+        <div class="clubs-cards-container">
+            <div class="row">
+
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">University of Toronto Machine Intelligence Student Team </h5>
+                      <h5 class="card-title">(2020-2021)</h5>
+                      <p class="card-text">As the Assistant VP Infrastructure, I help maintain our <a href="https://utmist.gitlab.io/">website</a> 
+                        (Go/Hugo/Docker/GitlabCI) and <a href="https://discord.gg/88mSPw8">Discord server</a>.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">UTRA SUMO</h5>
+                      <h5 class="card-title">(2018-2019)</h5>
+                      <p class="card-text">We built a little robot to push its competitors out of the ring.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Circle K International At the University of Toronto</h5>
+                        <h5 class="card-title">(2019-2020)</h5>
+                        <p class="card-text">I served as the club webmaster, in charge of renovating and updating our 
+                            <a href="http://utorontocirclek.weebly.com/">website</a>.</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+        <!-- End .awards-cards-container -->
+
+    </div>
+    <!-- End #awards -->
 
     <div id="skills">
         <h2 class="heading">Skills</h2>
