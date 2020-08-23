@@ -12,7 +12,7 @@
 */
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Consolas', sans-serif;
     font-size: 16px
 }
 
@@ -276,7 +276,7 @@ footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center
+    text-align: left
 }
 
 #lead-content h1, #lead-content h2 {
@@ -295,7 +295,7 @@ footer {
 #lead-content h2 {
     color: #a0cfee;
     font-weight: 500;
-    font-size: 2.25em;
+    font-size: 3em;
     margin-bottom: 15px
 }
 
@@ -307,7 +307,7 @@ footer {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(33, 125, 187, 0.8);
+    background: rgba(1, 1, 50, 0.7);
     z-index: 1
 }
 
