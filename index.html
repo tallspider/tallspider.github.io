@@ -59,12 +59,15 @@
 
     <div id="lead">
         <div id="lead-content">
-            <h1>> Annie Gao</h1>
-            <h2>Computer Engineering @ UofT</h2>
+            <h1 id="name_h1">
+                > <span id="name"></span>_
+            </h1>
+            <h2 id='lead_program_h2'></h2>
+            <h1 id='console_line'> </h1>
             <!-- <a href="#" class="btn-rounded-white">Download Resume</a> -->
         </div>
         <!-- End #lead-content -->
-
+        
         <div id="lead-overlay"></div>
 
         <div id="lead-down">
@@ -74,6 +77,37 @@
         </div>
         <!-- End #lead-down -->
     </div>
+
+    <!-- script for animating lead name and university typing -->
+    <script>
+        function addLetter(i){
+            const NAME = "Annie Gao"; console.log("hello");
+            if(i >= NAME.length){ 
+                document.getElementById('name_h1').textContent = '> ' + NAME;
+                document.getElementById('lead_program_h2').textContent = 'Computer Engineering @ UofT';
+                consoleLine(false);
+                return;
+            }
+
+            document.getElementById('name').textContent += NAME.charAt(i);
+            setTimeout(function(){ addLetter(i + 1) }, 200);
+        }
+        
+        function consoleLine(visible){
+            if(visible){
+                document.getElementById('console_line').textContent = '> ';
+                setTimeout(function(){ consoleLine(false); }, 300);
+            } else {
+                document.getElementById('console_line').textContent = '> _';
+                setTimeout(function(){ consoleLine(true); }, 500);
+            }
+        }
+
+        $(document).ready(function(){
+            addLetter(0);
+        });
+        
+    </script>
     <!-- End #lead -->
 
     <div id="about">
