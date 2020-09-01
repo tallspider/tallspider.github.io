@@ -12,27 +12,41 @@
 
 (function($) {
 
+    let cursorStatuses = new Map();   // for each element id: 1 for force on, 0 for flash, -1 for force off
+    
     // Remove no-js class
     $('html').removeClass('no-js');
 
     // Animate to section when nav is clicked
     $('header a').click(function(e) {
-
-        // Treat as normal link if no-scroll class
-        if ($(this).hasClass('no-scroll')) return;
-
         e.preventDefault();
-        var heading = $(this).attr('href');
-        var scrollDistance = $(heading).offset().top;
+        
+        addLetterForTab(0, e.target.textContent);
+        setTimeout(function(){ cursorStatuses.set('console_line', -1);}, 200);  // turn off flashing cursor
 
-        $('html, body').animate({
-            scrollTop: scrollDistance + 'px'
-        }, Math.abs(window.pageYOffset - $(heading).offset().top) / 1);
+        setTimeout(function(){
+            // Treat as normal link if no-scroll class
+            if (e.target.classList.contains('no-scroll')) return;
 
-        // Hide the menu once clicked if mobile
-        if ($('header').hasClass('active')) {
-            $('header, body').removeClass('active');
-        }
+            var heading = e.target.getAttribute('value');
+            var scrollDistance = $(heading).offset().top;
+
+            $('html, body').animate({
+                scrollTop: scrollDistance + 'px'
+            }, Math.abs(window.pageYOffset - $(heading).offset().top) / 2.5);
+
+            // Hide the menu once clicked if mobile
+            if ($('header').hasClass('active')) {
+                $('header, body').removeClass('active');
+            }
+
+            setTimeout(function(){
+                document.getElementById('console_line').textContent = '> ';
+                cursorStatuses.set('console_line', 0);
+                consoleLine('console_line');
+            }, 500);
+
+        }, 1000);
     });
 
     // Scroll to top
@@ -44,7 +58,7 @@
 
     // Scroll to first element
     $('#lead-down span').click(function() {
-        var scrollDistance = $('#lead').next().offset().top;
+        var scrollDistance = $('#about').offset().top;
         $('html, body').animate({
             scrollTop: scrollDistance + 'px'
         }, 500);
@@ -92,6 +106,70 @@
         $(this).fadeOut(300, function() {
             $('#more-projects').fadeIn(300);
         });
+    });
+
+    function addLetter(i){
+        const NAME = "ANNIE GAO";
+        if(i >= NAME.length){ 
+            document.getElementById('name_h1').textContent = '> ' + NAME;
+            document.getElementById('lead_program_h2').textContent = 'Computer Engineering @ UofT';
+            document.getElementById('console_line').textContent = '> ';
+            consoleLine('console_line');
+            return;
+        }
+
+        document.getElementById('name').textContent += NAME.charAt(i);
+        setTimeout(function(){ addLetter(i + 1) }, 200);
+    }
+    
+    function addLetterForTab(i, str){
+        if(i > str.length){
+            return;
+        }
+        let currStr = document.getElementById('console_line').textContent;
+        document.getElementById('console_line').textContent = 
+            currStr.substring(0, i + 2) + 
+            str.charAt(i) + 
+            currStr.substring(i + 2, currStr.length);
+
+        setTimeout(function(){ addLetterForTab(i + 1, str) }, 80);
+    }
+
+    function consoleLine(elemId){ 
+        let cursorStatus = cursorStatuses.get(elemId);
+        if(!cursorStatus){
+            cursorStatuses.set(elemId, 0);
+            cursorStatus = 0;
+        }
+        let old_str = document.getElementById(elemId).textContent;
+
+        if(cursorStatus == 1){  // force on
+            if(old_str.charAt(old_str.length - 1) != '_'){
+                document.getElementById(elemId).textContent += '_';
+            }
+        }
+
+        if(cursorStatus == 0){  // flash
+            if(old_str.charAt(old_str.length - 1) == '_'){
+                document.getElementById(elemId).textContent = old_str.substring(0, old_str.length - 1);
+                setTimeout(function(){ consoleLine(elemId); }, 300);
+            } else {
+                document.getElementById(elemId).textContent += '_';
+                setTimeout(function(){ consoleLine(elemId); }, 500);
+            }
+        }
+
+        if(cursorStatus == -1){ // force off
+            if(old_str.charAt(old_str.length - 1) == '_'){
+                document.getElementById(elemId).textContent = old_str.substring(0, old_str.length - 1);
+            }
+        }
+        
+    }
+
+    $(document).ready(function(){
+        cursorStatuses.set("console_line", 0);
+        addLetter(0);
     });
 
 })(jQuery);

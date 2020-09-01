@@ -48,6 +48,8 @@ $border: #dcd9d9;
 $heading: #374054;
 $text: #74808a;
 
+//contact form colors
+$contact-color: rgba(0, 0, 45, 1);
 /*
     ---------------------
     ----- 2. Mixins -----
@@ -154,7 +156,7 @@ header {
 
     ul {
         display: inline-block;
-        background: $background;
+        background: transparent;
         text-align: center;
         padding: 10px;
         margin: 0;
@@ -168,13 +170,12 @@ header {
 
     a {
         display: block;
-        color: $base-color;
+        color: lighten($base-color, 25%);
         padding: 10px;
 
         &:hover {
             color: $base-color-hover;
             text-decoration: none;
-            background: #eee;
             border-radius: 4px;
         }
 
@@ -206,12 +207,12 @@ header {
     position: fixed;
     right: 15px;
     top: 10px;
-    color: $base-color;
+    color: lighten($base-color, 25%);
     font-size: 1.5em;
     z-index: 20;
     padding: 0 7px;
     border-radius: 4px;
-    background: $background;
+    background: transparent;
 }
 
 #mobile-menu-close {
@@ -359,9 +360,9 @@ footer {
 #lead-content {
     position: absolute;
     z-index: 10;
-    top: 50%;
-    left: 25vw;
-    transform: translate(-50%, -50%);
+    top: 25%;
+    left: 25%;
+    // transform: translate(-50%, -50%);
     text-align: left;
 
     h1, h2 {
@@ -373,7 +374,7 @@ footer {
         color: #fff;
         font-weight: 900;
         font-size: 5em;
-        text-transform: uppercase;
+        // text-transform: uppercase;
         letter-spacing: 0.05em;
         line-height: 0.9em;
     }
@@ -394,7 +395,7 @@ footer {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba($base-color-hover, 0.7);
+    background: rgba(0, 0, 40, 0.7);
     z-index: 1;
 }
 
@@ -424,6 +425,14 @@ footer {
         animation-iteration-count: infinite;
         padding-top: 5px;;
     }
+}
+
+.background-alt{
+    background-color: $background-alt;
+}
+
+.background-normal{
+    background-color: $background;
 }
 
 @keyframes pulsate {
@@ -625,6 +634,69 @@ footer {
     }
 }
 
+#awards {
+    padding: 50px 30px 20px 30px;
+    border-bottom: 1px solid $border;
+    text-align: center;
+
+    h2 {
+        color: $heading;
+        margin-bottom: 50px;
+    }
+
+    .card {
+        height: 100%;
+    }
+}
+
+.awards-block {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    padding: 15px;
+    border: 1px solid $border;
+    text-align: left;
+}
+
+#awards .card-title{
+    font-weight: bold;
+    font-size: 1em;
+}
+
+#awards .card-text{
+    font-size: 0.9em;
+}
+
+#clubs {
+    padding: 50px 30px 20px 30px;
+    border-bottom: 1px solid $border;
+    text-align: center;
+
+    h2 {
+        color: $heading;
+        margin-bottom: 50px;
+    }
+
+    .card {
+        height: 100%;
+    }
+}
+
+.clubs-block {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    padding: 15px;
+    border: 1px solid $border;
+    text-align: left;
+}
+
+#clubs .card-title{
+    font-weight: bold;
+    font-size: 1em;
+}
+
+#clubs .card-text{
+    font-size: 0.9em;
+}
 /*
     -------------------------------
     ----- 8. Project Styles -----
@@ -731,7 +803,7 @@ footer {
 
 #contact {
     padding: 50px 15px;
-    background: $base-color;
+    background: $contact-color;
     text-align: center;
 
     h2 {
@@ -750,9 +822,9 @@ footer {
         width: 100%;
         padding: 10px;
         border-radius: 4px;
-        border: none;
+        border: 3px inset lighten($base-color, 25%);
         margin-bottom: 10px;
-        background: darken($base-color, 15%);
+        background: $contact-color;
         color: #fff;
         @include transition();
         @include placeholder {
@@ -761,7 +833,7 @@ footer {
 
         &:focus {
             outline: none;
-            background: darken($base-color, 25%);
+            background: lighten($contact-color, 20%);
         }
     }
 
@@ -777,13 +849,14 @@ footer {
         border-radius: 4px;
         padding: 5px 10px;
         border: none;
-        color: $base-color;
+        color: $contact-color;
         font-weight: 700;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         @include transition();
 
         &:hover {
             box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            background-color: lighten($base-color, 25%);
         }
     }
 }
