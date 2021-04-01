@@ -129,7 +129,7 @@
         let currStr = document.getElementById('console_line').textContent;
         document.getElementById('console_line').textContent = 
             currStr.substring(0, i + 2) + 
-            str.charAt(i) + 
+            str.charAt(i).toUpperCase() + 
             currStr.substring(i + 2, currStr.length);
 
         setTimeout(function(){ addLetterForTab(i + 1, str) }, 80);
